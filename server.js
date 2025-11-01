@@ -289,17 +289,16 @@ app.get('/status', (req, res) => {
 
 // Obter QR Code
 app.get('/qr', (req, res) => {
-    // Agora usamos a variável global qrCodeData, que contém a string Pura.
-    
+    const qrImage = qrCodeCache.get('qrcode');
+
     console.log('📲 Requisição de QR Code recebida');
     console.log('   Estado atual:', connectionState);
     console.log('   Conectado:', isConnected);
+    console.log('   QR no cache:', !!qrImage);
 
-    // Verificamos se a string pura do QR Code existe
-    if (qrCodeData) { 
-        console.log('   ✅ Retornando string Pura do QR Code');
-        // Retorna a string pura do QR e o estado em JSON.
-        res.json({ qr_string: qrCodeData, state: connectionState });
+    if (qrImage) {
+        console.log('   ✅ Retornando QR Code do cache');
+        res.json({ qr: qrImage, state: connectionState });
     } else if (isConnected) {
         console.log('   ✅ Já conectado');
         res.json({ message: 'Já conectado', state: 'connected' });
