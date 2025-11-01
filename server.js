@@ -24,8 +24,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT || 3001;
-const FLASK_API = process.env.FLASK_API || 'http://localhost:5000';
+const PORT = 3001; // <--- MUDANÇA AQUI: Forçando a porta 3001
+const FLASK_API = process.env.FLASK_API || 'http://localhost:5000'; //
 
 // Cache para QR Code
 const qrCodeCache = new NodeCache({ stdTTL: 300 });
