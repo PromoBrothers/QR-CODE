@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  whatsapp-monitor:
+    build: .
+    container_name: whatsapp-monitor
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - FLASK_API=${FLASK_API:-http://localhost:5000}
+    volumes:
+      # Persistir auth state do WhatsApp
+      - ./auth_info:/app/auth_info
+      # Persistir grupos monitorados
+      - ./monitored_groups.json:/app/monitored_groups.json
+    restart: unless-stopped
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3001/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  app-network:
+    driver: bridge

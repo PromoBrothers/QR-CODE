@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+auth_info
+*.md
+.git
+.gitignore
+*.bat
+test_*.js
+test-*.js
+.env
+.DS_Store
