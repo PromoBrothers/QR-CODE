@@ -32,7 +32,7 @@ try {
 
     const server = app.listen(PORT, () => {
         console.log(`   ✅ Servidor rodando na porta ${PORT}`);
-        console.log(`   🌐 Teste em: http://localhost:${PORT}/test\n`);
+        console.log(`   🌐 Teste em: http://qrcode:${PORT}/test\n`);
 
         // Teste 3: Configurar Baileys
         testBaileys();
