@@ -27,7 +27,7 @@ RUN mkdir -p auth_info
 # Definir variáveis de ambiente
 ENV NODE_ENV=production
 ENV PORT=3001
-ENV FLASK_API=http://localhost:5000
+ENV FLASK_API=http://qrcode:5000
 
 # Expor porta
 EXPOSE 3001
