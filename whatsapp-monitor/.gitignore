@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+
+# Auth session
+auth_info_baileys/
+
+# Config
+config.json
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
