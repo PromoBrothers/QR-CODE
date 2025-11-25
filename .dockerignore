@@ -1,0 +1,10 @@
+whatsapp-monitor/node_modules
+whatsapp-monitor/auth_info
+whatsapp-monitor/*.bat
+whatsapp-monitor/test_*.js
+whatsapp-monitor/test-*.js
+.git
+.gitignore
+*.md
+.DS_Store
+.env
